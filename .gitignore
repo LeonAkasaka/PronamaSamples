@@ -41,3 +41,19 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Unity
+Temp/
+Obj/
+UnityGenerated/
+Library/
+
+#Visual Studio
+*.svd
+*.userprefs
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
