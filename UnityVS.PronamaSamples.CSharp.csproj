@@ -50,6 +50,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\LocomotionControllers\AwayFromLocomotionController.cs" />
     <Compile Include="Assets\Scripts\LocomotionControllers\InputLocoimotionController.cs" />
     <Compile Include="Assets\Scripts\Locomotors\ILocomotor.cs" />
     <Compile Include="Assets\Scripts\LocomotionControllers\LocomotionController.cs" />
