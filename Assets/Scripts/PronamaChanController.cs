@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PronamaChanController : Locomotor
+public class PronamaChanController : MonoBehaviour
 {
     [SerializeField]
     private GameObject _targetObject = null;

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// プレイヤーの入力でゲームオブジェクトを動かす LocomotionContoller。
+/// </summary>
 public class InputLocoimotionController : LocomotionController
 {
     private void FixedUpdate()
@@ -8,16 +11,12 @@ public class InputLocoimotionController : LocomotionController
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
 
-        Locomotor.Move(v);
-        Locomotor.Rotate(h);
-
-        Locomotor.Motion.Speed = v;
-        Locomotor.Motion.Direction = h;
+        Locomotors.Move(v);
+        Locomotors.Rotate(h);
 
         if (Input.GetButtonDown("Jump"))
         {
-            Locomotor.Jump();
-            StartCoroutine(Locomotor.Motion.Jump());
+            Locomotors.Jump(1.0F);
         }
     }
 }

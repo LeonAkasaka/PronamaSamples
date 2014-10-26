@@ -54,7 +54,6 @@ public class UnityChanLocomotions
         {
             Animator.SetBool(JumpParameter, true);
         }
-        //本当は Task 返したい…
         return IterateInState(JumpState, () => Animator.SetBool(JumpParameter, false));
     }
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UnityChanController : Locomotor
+public class UnityChanController : MonoBehaviour
 {
 
 }
