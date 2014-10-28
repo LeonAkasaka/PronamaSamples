@@ -16,7 +16,7 @@ public class TaskIterator : MonoBehaviour
         Debug.LogError(obj.Error.ToString());
     }
 
-	private void Update ()
+    private void FixedUpdate()
     {
         _scheduler.Update();
 	}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using IteratorTasks;
 
 /// <summary>
 /// ゲームオブジェクトの Transform を操作する Locomotor の実装。
@@ -42,9 +43,11 @@ public class TransformLocomotor : Locomotor, ILocomotor
         transform.Rotate(0, velocity * RotateSpeed, 0);
     }
 
-    public override void Jump(float force)
+    public override Task Jump(float force)
     {
         var v = Vector3.up * force * JumpPower;
         rigidbody.AddForce(v, ForceMode.VelocityChange);
+
+        return Task.CompletedTask; //TODO: コライダーが地面に接するまでのタスクにする
     }
 }

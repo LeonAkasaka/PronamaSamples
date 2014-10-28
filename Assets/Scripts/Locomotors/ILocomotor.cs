@@ -1,4 +1,5 @@
-﻿
+﻿using IteratorTasks;
+
 /// <summary>
 /// キャラクターの基本的な運動を提供するインターフェイス。
 /// 空間座標の移動とアニメーションを実装から切り離すため、このインターフェイス越しに操作する。
@@ -26,5 +27,5 @@ public interface ILocomotor
     /// ジャンプする
     /// </summary>
     /// <param name="velocity">ジャンプの強さ</param>
-    void Jump(float force);
+    Task Jump(float force);
 }

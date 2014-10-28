@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using IteratorTasks;
+using UnityEngine;
 
 /// <summary>
 /// UnityChanLocomotor アニメーションを再生する Locomotor の実装。
@@ -27,8 +28,8 @@ public class UnityChanLocomotor : Locomotor, ILocomotor
         Motion.Direction = velocity;
     }
 
-    public override void Jump(float force)
+    public override Task Jump(float force)
     {
-        StartCoroutine(Motion.Jump());
+        return Motion.Jump();
     }
 }

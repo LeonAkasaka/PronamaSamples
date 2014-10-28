@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using IteratorTasks;
 
 /// <summary>
 /// こんなクラスを Animator 毎に作りたいけど、ほとんどテンプレ作業。
@@ -43,34 +44,48 @@ public class UnityChanLocomotions
 
     public bool CanJump { get { return State == LocomationState && !Animator.IsInTransition(0); } }
 
+    public bool CanRest { get { return State == IdleState && !Animator.IsInTransition(0); } }
+
     public UnityChanLocomotions(Animator animator)
     {
         Animator = animator;
     }
 
-    public IEnumerator Jump()
+    public Task Jump()
     {
+        var task = Task.CompletedTask;
         if (CanJump)
         {
-            Animator.SetBool(JumpParameter, true);
+            task = StartMotion(JumpParameter, JumpState);
         }
-        return IterateInState(JumpState, () => Animator.SetBool(JumpParameter, false));
+        return task;
     }
 
-    public IEnumerator Rest()
+    public Task Rest()
     {
-        Animator.SetBool(RestParameter, true);
-        return IterateInState(RestState, () => Animator.SetBool(RestParameter, false));
-    }
-
-    private IEnumerator IterateInState(int state, Action finished)
-    {
-        do
+        var task = Task.CompletedTask;
+        if (CanRest)
         {
-            //状態移行に１フレーム待つ必要があるので do 文使っている
-            yield return null;
-        } while (State == state);
-        finished();
+            task = StartMotion(RestParameter, RestState);
+        }
+        return task;
+    }
+
+    private Task StartMotion(string parameter, int state)
+    {
+        Animator.SetBool(parameter, true);
+        return Task.Run(IterateNotInState(state)) //指定の状態に移行するまで
+            .ContinueWithTask(t => Task.Run(IterateInState(state))) //指定の状態が終了するまで
+                    .ContinueWith(t => Animator.SetBool(parameter, false));
+    }
+
+    private IEnumerator IterateNotInState(int state)
+    {
+        while (State != state) { yield return null; }
+    }
+    private IEnumerator IterateInState(int state)
+    {
+        while (State == state) { yield return null; }
     }
 
 }

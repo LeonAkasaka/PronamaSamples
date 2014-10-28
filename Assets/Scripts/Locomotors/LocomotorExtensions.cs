@@ -1,7 +1,9 @@
-﻿using System;
+﻿using IteratorTasks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 public static class LocomotorExtensions
 {
@@ -20,11 +22,16 @@ public static class LocomotorExtensions
         return locomotors.All(x => x.CanJump);
     }
 
-    public static void Jump(this IEnumerable<ILocomotor> locomotors, float force)
+    public static Task Jump(this IEnumerable<ILocomotor> locomotors, float force)
     {
         if (locomotors.CanJump())
         {
-            foreach (var locomotor in locomotors) { locomotor.Jump(force); }
+            var jumpTasks = locomotors.Select(x => x.Jump(force)).ToArray();
+            return Task.WhenAll(jumpTasks);
+        }
+        else
+        {
+            return Task.CompletedTask;
         }
     }
 }

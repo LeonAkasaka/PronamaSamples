@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using IteratorTasks;
+using UnityEngine;
 
 public abstract class Locomotor : MonoBehaviour, ILocomotor
 {
@@ -6,5 +7,5 @@ public abstract class Locomotor : MonoBehaviour, ILocomotor
 
     public abstract void Move(float velocity);
     public abstract void Rotate(float velocity);
-    public abstract void Jump(float force);
+    public abstract Task Jump(float force);
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using IteratorTasks;
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -17,10 +18,10 @@ public class AwayFromLocomotionController : LocomotionController
     protected override void Start()
     {
         base.Start();
-        StartCoroutine(MotionIterator());
+        Task.Run(IterateMotionUpdate);
     }
 
-    private IEnumerator MotionIterator()
+    private IEnumerator IterateMotionUpdate()
     {
         yield return null;
 

@@ -7,16 +7,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A761CE6C-1F90-5C1D-AC9A-60E62A6DEC92}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,23 +51,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Animators\UnityChanLocomotions.cs" />
     <Compile Include="Assets\Scripts\LocomotionControllers\AwayFromLocomotionController.cs" />
     <Compile Include="Assets\Scripts\LocomotionControllers\InputLocoimotionController.cs" />
-    <Compile Include="Assets\Scripts\Locomotors\ILocomotor.cs" />
     <Compile Include="Assets\Scripts\LocomotionControllers\LocomotionController.cs" />
+    <Compile Include="Assets\Scripts\Locomotors\ILocomotor.cs" />
+    <Compile Include="Assets\Scripts\Locomotors\Locomotor.cs" />
     <Compile Include="Assets\Scripts\Locomotors\LocomotorExtensions.cs" />
     <Compile Include="Assets\Scripts\Locomotors\TransformLocomotor.cs" />
-    <Compile Include="Assets\Scripts\PronamaChanController.cs" />
     <Compile Include="Assets\Scripts\Locomotors\UnityChanLocomotor.cs" />
+    <Compile Include="Assets\Scripts\PronamaChanController.cs" />
+    <Compile Include="Assets\Scripts\UnityChanController.cs" />
+    <Compile Include="Assets\TaskIterator.cs" />
     <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
     <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
     <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
     <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
     <Compile Include="Assets\UnityChan\SplashScreen\Scripts\SplashScreen.cs" />
-    <Compile Include="Assets\Scripts\UnityChanController.cs" />
-    <Compile Include="Assets\Scripts\Animators\UnityChanLocomotions.cs" />
-    <Compile Include="Assets\Scripts\Locomotors\Locomotor.cs" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
@@ -81,7 +80,7 @@
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
     <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
     <None Include="Assets\UnityChan\Stage\Shader\AlphaMask.shader" />
+    <None Include="Assets\ExternalLibraries\IteratorTasks.dll" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
