@@ -47,6 +47,7 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
+UnityVS/
 
 #Visual Studio
 *.svd
