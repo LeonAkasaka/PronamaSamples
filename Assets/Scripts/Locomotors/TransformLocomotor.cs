@@ -5,7 +5,6 @@ using IteratorTasks;
 /// <summary>
 /// ゲームオブジェクトの Transform を操作する Locomotor の実装。
 /// </summary>
-[RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
 public class TransformLocomotor : Locomotor
 {
@@ -27,7 +26,7 @@ public class TransformLocomotor : Locomotor
 
     public override bool CanJump { get { return true; } } //TODO: 地面と接しているか調べる
 
-    public override void Move(float velocity)
+    public override void OnMove(float velocity)
     { 
         var v = new Vector3(0, 0, velocity);
         v = transform.TransformDirection(v);
@@ -38,12 +37,12 @@ public class TransformLocomotor : Locomotor
         transform.localPosition += v * Time.fixedDeltaTime;
     }
 
-    public override void Rotate(float velocity)
+    public override void OnRotate(float velocity)
     {
         transform.Rotate(0, velocity * RotateSpeed, 0);
     }
 
-    public override Task Jump(float force)
+    public override Task OnJump(float force)
     {
         var v = Vector3.up * force * JumpPower;
         rigidbody.AddForce(v, ForceMode.VelocityChange);

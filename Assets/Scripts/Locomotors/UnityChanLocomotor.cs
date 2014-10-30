@@ -18,17 +18,17 @@ public class UnityChanLocomotor : Locomotor
         _motion = new UnityChanLocomotions(animetor);
     }
 
-    public override void Move(float velocity)
+    public override void OnMove(float velocity)
     {
         Motion.Speed = velocity;
     }
 
-    public override void Rotate(float velocity)
+    public override void OnRotate(float velocity)
     {
         Motion.Direction = velocity;
     }
 
-    public override Task Jump(float force)
+    public override Task OnJump(float force)
     {
         return Motion.Jump();
     }
