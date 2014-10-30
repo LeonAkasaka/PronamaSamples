@@ -5,7 +5,7 @@ using UnityEngine;
 /// UnityChanLocomotor アニメーションを再生する Locomotor の実装。
 /// </summary>
 [RequireComponent(typeof(Animator))]
-public class UnityChanLocomotor : Locomotor, ILocomotor
+public class UnityChanLocomotor : Locomotor
 {
     private UnityChanLocomotions _motion;
     public UnityChanLocomotions Motion { get { return _motion; } }

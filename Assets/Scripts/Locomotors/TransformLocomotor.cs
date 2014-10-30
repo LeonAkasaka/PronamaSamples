@@ -7,7 +7,7 @@ using IteratorTasks;
 /// </summary>
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
-public class TransformLocomotor : Locomotor, ILocomotor
+public class TransformLocomotor : Locomotor
 {
     [SerializeField]
     private float _forwardSpeed = 7.0f;
