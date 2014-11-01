@@ -12,20 +12,32 @@ public interface ILocomotor
     bool CanJump { get; }
 
     /// <summary>
-    /// 移動（前進・後退）する
+    /// 休憩モーションに入れるなら true、そうでなければ false。
+    /// </summary>
+    bool CanRest { get; }
+
+    /// <summary>
+    /// 移動（前進・後退）する。
     /// </summary>
     /// <param name="velocity">移動速度。正なら前進、負なら後退。</param>
     void Move(float velocity);
 
     /// <summary>
-    /// 回転する
+    /// 回転する。
     /// </summary>
     /// <param name="velocity">回転速度。正なら時計回り、負なら反時計回り。</param>
     void Rotate(float velocity);
 
     /// <summary>
-    /// ジャンプする
+    /// ジャンプする。
     /// </summary>
-    /// <param name="velocity">ジャンプの強さ</param>
+    /// <param name="velocity">ジャンプの強さ。</param>
+    /// <returns>ジャンプが終わるまでのタスク。</returns>
     Task Jump(float force);
+
+    /// <summary>
+    /// 休憩する。
+    /// </summary>
+    /// <returns>休憩モーションが終了するまでのタスク。</returns>
+    Task Rest();
 }

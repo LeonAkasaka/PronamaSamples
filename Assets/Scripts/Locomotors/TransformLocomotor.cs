@@ -26,6 +26,8 @@ public class TransformLocomotor : Locomotor
 
     public override bool CanJump { get { return true; } } //TODO: 地面と接しているか調べる
 
+    public override bool CanRest { get { return true; } }
+
     public override void OnMove(float velocity)
     { 
         var v = new Vector3(0, 0, velocity);
@@ -48,5 +50,9 @@ public class TransformLocomotor : Locomotor
         rigidbody.AddForce(v, ForceMode.VelocityChange);
 
         return Task.CompletedTask; //TODO: コライダーが地面に接するまでのタスクにする
+    }
+    public override Task OnRest()
+    {
+        return Task.CompletedTask;
     }
 }

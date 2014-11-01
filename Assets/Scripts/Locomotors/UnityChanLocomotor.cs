@@ -12,6 +12,8 @@ public class UnityChanLocomotor : Locomotor
 
     public override bool CanJump { get { return Motion.CanJump; } }
 
+    public override bool CanRest { get { return Motion.CanRest; } }
+
     public virtual void Start()
     {
         var animetor = GetComponent<Animator>();
@@ -31,5 +33,10 @@ public class UnityChanLocomotor : Locomotor
     public override Task OnJump(float force)
     {
         return Motion.Jump();
+    }
+
+    public override Task OnRest()
+    {
+        return Motion.Rest();
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="Assets\Scripts\LocomotionControllers\AwayFromLocomotionController.cs" />
     <Compile Include="Assets\Scripts\LocomotionControllers\InputLocoimotionController.cs" />
     <Compile Include="Assets\Scripts\LocomotionControllers\LocomotionController.cs" />
+    <Compile Include="Assets\Scripts\LocomotionControllers\RandomWalkLocomiotonController.cs" />
     <Compile Include="Assets\Scripts\Locomotors\ILocomotor.cs" />
     <Compile Include="Assets\Scripts\Locomotors\Locomotor.cs" />
     <Compile Include="Assets\Scripts\Locomotors\LocomotorExtensions.cs" />

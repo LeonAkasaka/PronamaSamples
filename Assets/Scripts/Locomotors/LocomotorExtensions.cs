@@ -34,4 +34,20 @@ public static class LocomotorExtensions
             return Task.CompletedTask;
         }
     }
+    public static bool CanRest(this IEnumerable<ILocomotor> locomotors)
+    {
+        return locomotors.All(x => x.CanRest);
+    }
+    public static Task Rest(this IEnumerable<ILocomotor> locomotors)
+    {
+        if (locomotors.CanRest())
+        {
+            var restTasks = locomotors.Select(x => x.Rest()).ToArray();
+            return Task.WhenAll(restTasks);
+        }
+        else
+        {
+            return Task.CompletedTask;
+        }
+    }
 }
