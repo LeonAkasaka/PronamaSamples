@@ -3,8 +3,8 @@ using UnityEngine;
 
 public abstract class Locomotor : MonoBehaviour, ILocomotor
 {
-    public abstract bool CanJump { get; }
-    public abstract bool CanRest { get; }
+    public virtual bool CanJump { get { return true; } }
+    public virtual bool CanRest { get { return true; } }
 
     public void Move(float velocity)
     {
